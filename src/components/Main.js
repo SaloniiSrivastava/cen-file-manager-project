@@ -25,7 +25,7 @@ function Home() {
   const [three, setThree] = useState("");
   const [four, setFour] = useState("");
 
-  const[themes,setThemes] = useState("Dark");
+  const[themes,setThemes] = useState("Light");
   
 
   var x = document.getElementById("toggleMode");
@@ -90,7 +90,7 @@ function Home() {
 
       if (event.target.previousSibling) {
         event.target.previousSibling.focus();
-        console.log(event.target.value);
+        //console.log(event.target.value);
 
         //const form = event.target.form;
         // const index = [...form].indexOf(event.target);
