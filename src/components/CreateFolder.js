@@ -1,16 +1,33 @@
-import React from 'react'
+import React,{useState} from 'react'
 
 function CreateFolder() {
+    const [foldername, setFolderName] = useState("");
+
+    function handleChange(e) {
+        setFolderName(e.target.value);
+        //console.log(e.target.value);
+       
+      }
+     
+  
+
     const submitForm = (e) => {
         e.preventDefault();
         var element = document.getElementById("createFolderBg");
+        if(foldername){
         element.style.display = "none";
+        localStorage.setItem('add','add');
+        } else{
+            alert('Folder name cannot be empty!');
+        }
     }
     function handleCancel(){
         var element = document.getElementById("resetPinBlackBg");
 
                     element.style.display = "none";
     }
+    localStorage.setItem("name",foldername);
+    localStorage.setItem("type","folder");
   return (
     <div className='blackBg'  id="createFolderBg">
                 <div className='whiteBg file'>
@@ -18,7 +35,7 @@ function CreateFolder() {
                     <form action='' onSubmit={submitForm} >
                     <label>Enter Folder Name</label>
                         <input
-                            type="text" name="folder" id="setPin" placeholder="Enter new folder name" />
+                            type="text" name="folder" id="setPin" placeholder="Enter new folder name" onChange={handleChange} />
                         
                         <button className='btn'>Create New</button>
                         <button className='btn' id="cancelBtn" onClick={handleCancel}>Cancel</button>

@@ -4,16 +4,18 @@ import { ReactComponent as LockIcon } from "../LockFolder.svg";
 import { ReactComponent as GreyFolder } from "../GreyFolder.svg";
 import { ReactComponent as Logo } from "../logo1.svg";
 import RecursiveDiv from "./RecursiveDiv";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+
+
 
 const Navbar = () => {
   //let navigate = useNavigate();
   
   return (
-    <div className="nav" draggable="true">
+    <div className="app-sidebar-content">
       <Logo className="logo" />
-      <div className="maxWidth">
-        <div className="addBtn">
+      <div >
+        <div className="side addBtn">
           <button className="addFile">
             <FileIcon />
             Add file
@@ -24,7 +26,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="folder outerFolder">
+        {/* <div className="folder outerFolder">
           <GreyFolder />
           Some Folder Name
         </div>
@@ -51,7 +53,7 @@ const Navbar = () => {
         <div className="folder outerFolder">
           <GreyFolder />
           Some Folder Name
-        </div>
+        </div> */}
         <div className="lock">
           <RecursiveDiv></RecursiveDiv>
           <button
@@ -68,6 +70,7 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+      
     </div>
   );
 };

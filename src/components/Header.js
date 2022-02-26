@@ -2,7 +2,7 @@ import { ReactComponent as Group } from "./Group 5.svg";
 import {useNavigate} from "react-router-dom";
 import {ReactComponent as Logo} from '../logo1.svg';
 import React,{ useState} from "react";
-
+import { ReactComponent as DarkMode } from "../logo_dark.svg";
 
 
 
@@ -57,13 +57,23 @@ const useHeader = () => {
   }
   localStorage.setItem('pin',pin);
   
+  var currTheme = localStorage.getItem("theme");
+   
+  if(currTheme === null){
+    localStorage.setItem("theme",'Dark');
+  }
+
+  
 
     return (   
           
         <header>
-        
+       
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'/>
-        <Logo className="logo" />
+        <Logo className="logo" id="lightLogo" />
+        <DarkMode id="darkLogo"/>
+
+       
   <div className="max">
         <div className="left">
           <h1>Welcome to your dashboard</h1>

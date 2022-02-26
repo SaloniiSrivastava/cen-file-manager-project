@@ -16,7 +16,7 @@ import CreateFolder from "./CreateFolder";
 
 function Home() {
   //let navigate = useNavigate();
-
+  
   var pin = localStorage.getItem("pin");
   const body = document.body;
 
@@ -86,9 +86,10 @@ function Home() {
   //delete input value pin
   const handleBack = (event) => {
     if (event.key.toLowerCase() === "backspace") {
-      //event.target.pop(event.target.value);
+      //event.target.pop(event.value);
 
       if (event.target.previousSibling) {
+        event.target.focus();
         event.target.previousSibling.focus();
         //console.log(event.target.value);
 
@@ -232,6 +233,7 @@ if(localStorage.getItem("theme") === 'Dark'){
                 className="smallBtn"
                 onClick={() => {
                   y = document.getElementById("toggleFile");
+                
                   if (
                     y.style.display === "none" ||
                     x.style.display !== "none" ||
@@ -243,7 +245,8 @@ if(localStorage.getItem("theme") === 'Dark'){
                   } else {
                     y.style.display = "none";
                   }
-                }}
+                } 
+              }
               >
                 <Add />
               </button>
