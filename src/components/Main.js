@@ -3,20 +3,28 @@ import { useState, useRef } from "react";
 import Nav from "./Nav";
 import { ReactComponent as SearchIcon } from "../search.svg";
 import { ReactComponent as LightMode } from "../LightMode.svg";
-import { ReactComponent as DarkMode } from "../logo_dark.svg";
+import { ReactComponent as DarkMode } from "../Moon.svg";
 import { ReactComponent as Add } from "../add.svg";
+import { ReactComponent as AddDark } from "../AddDark.svg";
 import { ReactComponent as Setting } from "../Settings.svg";
+import { ReactComponent as SettingDark } from "../SettingDark.svg";
 import { ReactComponent as BigFile } from "../BigFile.svg";
+import { ReactComponent as BigFileDark } from "../BigFileDark.svg";
 import { ReactComponent as BigFolder } from "../BigFolder.svg";
+import { ReactComponent as BigFolderDark } from "../BigFolderDark.svg";
 import { ReactComponent as Unlock } from "../UnlockFolder.svg";
 import ResetPin from "./ResetPin";
 import CreateFile from "./CreateFile";
 import CreateFolder from "./CreateFolder";
+import FileIcon from "./File";
+import FileEdit from "./FileEdit"
+
 //import {useNavigate} from "react-router-dom";
 
 function Home() {
   //let navigate = useNavigate();
-  
+  const name = localStorage.getItem("nodeName");
+ 
   var pin = localStorage.getItem("pin");
   const body = document.body;
 
@@ -27,6 +35,8 @@ function Home() {
 
   const[themes,setThemes] = useState("Light");
   
+  const[lightIcon,setLightIcon] = useState(true);
+
 
   var x = document.getElementById("toggleMode");
   var y = document.getElementById("toggleFile");
@@ -106,13 +116,14 @@ function handleThemeLight(e){
    setThemes('Light');
    x.style.display = "none";
    body.classList.remove("dark-theme");
-   
+   setLightIcon(true);
  }
 function handleThemeDark(e){
   e.preventDefault();
   setThemes('Dark');
   x.style.display = "none" ; 
   body.classList.add("dark-theme");
+  setLightIcon(false);
 }
 // function handleThemeCustom(){
 //     setThemes('Custom');
@@ -127,7 +138,11 @@ if(localStorage.getItem("theme") === 'Dark'){
   body.classList.remove("dark-theme");
 }
 
-
+const editFile = () => {
+  var element = document.getElementById("editFileBg");
+  element.style.display = "flex";
+  y.style.display = "none";
+}
 
   // navbar resize
   const sidebarRef = useRef(null);
@@ -174,7 +189,7 @@ if(localStorage.getItem("theme") === 'Dark'){
       >
         <div className="app-sidebar-content">
           
-          <Nav />
+          <Nav/>
         </div>
         <div className="app-sidebar-resizer" onMouseDown={startResizing} />
       </div>
@@ -188,25 +203,43 @@ if(localStorage.getItem("theme") === 'Dark'){
               <SearchIcon />
               <input type="text" placeholder="Search.." id="searchBar"></input>
               <button type="submit" hidden></button>
+              
               <div className="fileLayout">
-                <div className="fileLabel">
-                  <BigFile /> File
-                </div>
-                <div className="fileLabel">
+               {lightIcon ? <div className="fileLabel" onClick={editFile}>                 
+                  <BigFile /> {name}                  
+                </div> : 
+                <div className="fileLabel"  onClick={editFile}>                 
+                <BigFileDark /> {name}                  
+              </div> }
+                  
+                {lightIcon ? <div className="fileLabel">
                   <BigFolder />
                   Folder
-                </div>
-                <div className="fileLabel">
+                </div> : <div className="fileLabel">
+                  <BigFolderDark />
+                  Folder
+                </div> 
+                }
+               {lightIcon ? <div className="fileLabel" onClick={editFile}>
                   <BigFile /> File
-                </div>
-                <div className="fileLabel">
+                </div> :
+                <div className="fileLabel"  onClick={editFile}>
+                <BigFileDark /> File
+              </div>  
+                }
+                {lightIcon ? <div className="fileLabel">
                   <BigFolder />
                   Folder
-                </div>
+                </div> : <div className="fileLabel">
+                  <BigFolderDark />
+                  Folder
+                </div> 
+                }
               </div>
             </div>
 
             <div className="butn">
+              {lightIcon ? 
               <button
                 className="addFile"
                 onClick={() => {
@@ -224,11 +257,32 @@ if(localStorage.getItem("theme") === 'Dark'){
                   }
                 }}
               >
-                <LightMode id="lightLogo" />
-                
                
-                {themes} Mode
-              </button>
+               <LightMode id="lightLogo" />
+                {themes} Mode 
+              </button> : 
+              <button
+                className="addFile"
+                onClick={() => {
+                    x = document.getElementById("toggleMode");
+                  if (
+                    x.style.display === "none" ||
+                    y.style.display !== "none" ||
+                    z.style.display !== "none"
+                  ) {
+                    x.style.display = "block";
+                    y.style.display = "none";
+                    z.style.display = "none";
+                  } else {
+                    x.style.display = "none";
+                  }
+                }}
+              >
+               
+               <DarkMode id="lightLogo" />
+                {themes} Mode </button>  
+                }
+                {lightIcon ?
               <button
                 className="smallBtn"
                 onClick={() => {
@@ -248,9 +302,29 @@ if(localStorage.getItem("theme") === 'Dark'){
                 } 
               }
               >
-                <Add />
-              </button>
-              <button
+                <Add /> </button> :  
+                <button
+                className="smallBtn"
+                onClick={() => {
+                  y = document.getElementById("toggleFile");
+                
+                  if (
+                    y.style.display === "none" ||
+                    x.style.display !== "none" ||
+                    z.style.display !== "none"
+                  ) {
+                    y.style.display = "block";
+                    x.style.display = "none";
+                    z.style.display = "none";
+                  } else {
+                    y.style.display = "none";
+                  }
+                } 
+              }
+              >
+                <AddDark /> </button> }
+              
+                {lightIcon ? <button
                 className="smallBtn"
                 onClick={() => {
                   // var x = document.getElementById("togglePin");
@@ -268,7 +342,27 @@ if(localStorage.getItem("theme") === 'Dark'){
                 }}
               >
                 <Setting />
-              </button>
+              </button> : 
+                <button
+                className="smallBtn"
+                onClick={() => {
+                  // var x = document.getElementById("togglePin");
+                  if (
+                    z.style.display === "none" ||
+                    x.style.display !== "none" ||
+                    y.style.display !== "none"
+                  ) {
+                    z.style.display = "block";
+                    x.style.display = "none";
+                    y.style.display = "none";
+                  } else {
+                    z.style.display = "none";
+                  }
+                }}
+              >
+                <SettingDark />
+              </button> 
+              }
             </div>
           </div>
           <div className="optionLayout">
@@ -376,6 +470,7 @@ if(localStorage.getItem("theme") === 'Dark'){
         <ResetPin />
         <CreateFile />
         <CreateFolder />
+        <FileEdit/>
       </div>
     
   );

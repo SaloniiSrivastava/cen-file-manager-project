@@ -1,19 +1,23 @@
 import { ReactComponent as FileIcon } from "../AddFile.svg";
 import { ReactComponent as FolderIcon } from "../AddFolder.svg";
 import { ReactComponent as LockIcon } from "../LockFolder.svg";
-import { ReactComponent as GreyFolder } from "../GreyFolder.svg";
 import { ReactComponent as Logo } from "../logo1.svg";
+import { ReactComponent as LogoDark } from "../logo_dark.svg";
 import RecursiveDiv from "./RecursiveDiv";
-// import { useNavigate } from "react-router-dom";
+ //import { useNavigate } from "react-router-dom";
 
+import React, {useState}  from "react";
 
 
 const Navbar = () => {
   //let navigate = useNavigate();
-  
-  return (
+  const[lightIcon,setLightIcon] = useState(true);
+  const theme = localStorage.getItem("theme");
+
+
+   return (
     <div className="app-sidebar-content">
-      <Logo className="logo" />
+      {lightIcon ?  <Logo className="logo" /> : <LogoDark className="logo"/>}
       <div >
         <div className="side addBtn">
           <button className="addFile">
@@ -69,8 +73,9 @@ const Navbar = () => {
             Lock
           </button>
         </div>
+        
       </div>
-      
+     
     </div>
   );
 };

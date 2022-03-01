@@ -1,24 +1,24 @@
 import React,{useState} from 'react'
 
-function CreateFile({data = []}) {
-    const [name, setName] = useState("");
+function CreateFile() {
+    const [text, setText] = useState("");
     //console.log(data);
     
-    
     function handleChange(e) {
-        setName(e.target.value);
+        setText(e.target.value);
         //console.log(e.target.value);
-       
+       localStorage.setItem("text",text)
       }
+      console.log(text);
       
     //console.log(name);
     
     const submitForm = (e) => {
         e.preventDefault();
-        var element = document.getElementById("createFileBg");
+        var element = document.getElementById("editFileBg");
         //if(name){
         element.style.display = "none";
-        localStorage.setItem('add','add');
+        
         //} else{
          //   alert('File name cannot be empty!');
         //}
@@ -32,22 +32,21 @@ function CreateFile({data = []}) {
          
         
     }
-    localStorage.setItem("name",name);
-    localStorage.setItem("type","file"); 
+     
         
     
   return (
-    <div className='blackBg' id="createFileBg">
-                <div className='whiteBg file' >
+    <div className='blackBg' id="editFileBg">
+                <div className='whiteBg edit' >
                     
-                    <h3>Create File</h3>
+                    
                     
                     <form action="" onSubmit={submitForm}>
-                        <label>Enter File Name</label>
+                        <label>Edit File</label>
                         <input
-                            type="text" name="file" id="setPin" placeholder="Enter new file name" onChange={handleChange} />
-                        
-                        <button className='btn'  >Create New</button>
+                            type="text" name="file" id='edit'  placeholder="Type anything here.." onChange={handleChange} />
+                            
+                        <button className='btn'>Save Changes</button>
                         <button className='btn' id="cancelBtn" onClick={handleCancel}>Cancel</button>
                     </form>
                 </div>

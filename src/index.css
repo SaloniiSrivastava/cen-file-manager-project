@@ -56,6 +56,7 @@ code {
   margin: 0.5%;
  
 }
+
 .nav .logo{
   margin-top: 5%;
   margin-left:10% ;
@@ -145,7 +146,7 @@ input{
   background-color: var(--folder);
   font-weight: bold;
   margin: 5% 2%;
-
+  border-left: 2px #480355 ;
  
 }
 
@@ -219,7 +220,7 @@ input{
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  cursor: pointer;
 }
 /* navbar styling */
 
@@ -281,7 +282,7 @@ input{
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 #lockBtn {
   /* width: max-content; */
@@ -304,6 +305,7 @@ input{
   font-family: "DM Sans";
   padding: 3px;
   background-color: var(--folder);
+ 
   
 }
  .innerFolder {
@@ -322,7 +324,20 @@ input{
   flex-direction: column;
   width: 100%;
 }
+.activeBox, #folderBox:hover{
+  background-color: #ffffff;
+  border: 2px solid  var(--button);
+ cursor: pointer;
+ color:#000000;
+}
 
+ul{
+  list-style-type:none;
+  /* border-left: 1px solid var(--folder); */
+}
+li{
+  border-left: 2px solid var(--folder);
+}
 .toggleMode{
   display: none;  
   border:1px solid #dfe0e0 ;
@@ -399,7 +414,10 @@ input{
   width: 100%;
  
 }
-
+.inline{
+  display: flex;
+  flex-direction: row;
+}
 .whiteBg {
   height: max-content;
   background-color: var(--background);
@@ -541,13 +559,40 @@ input{
   margin-bottom: 3%;
 }
 
+.folderBoxs{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+.top {
+  display: flex;
+  flex-direction: row;
+}
+.rightFile{
+ display: flex;
 
+}
 
+.bread{
+  display: flex;
+}
+#editFileBg{
+  display: none;
+}
+#editFileBg label{
+  margin-top: 10%;
+}
+#editFileBg #edit{
+  width: 80%;
+  height:200px;
+ 
 
+}
 
-
-
+#editFileBg button{
+  margin-top:2% ;
+}
 
 
 

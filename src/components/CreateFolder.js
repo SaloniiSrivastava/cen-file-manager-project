@@ -9,23 +9,23 @@ function CreateFolder() {
        
       }
      
-  
+      function handleCancel(){
+        
+        var element = document.getElementById("resetPinBlackBg");
+
+                    element.style.display = "none";
+          
+    }
 
     const submitForm = (e) => {
         e.preventDefault();
         var element = document.getElementById("createFolderBg");
-        if(foldername){
+        
         element.style.display = "none";
         localStorage.setItem('add','add');
-        } else{
-            alert('Folder name cannot be empty!');
-        }
+        
     }
-    function handleCancel(){
-        var element = document.getElementById("resetPinBlackBg");
-
-                    element.style.display = "none";
-    }
+   
     localStorage.setItem("name",foldername);
     localStorage.setItem("type","folder");
   return (
