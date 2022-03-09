@@ -649,7 +649,11 @@ function handleShowAddFileFolder(name){
             <Unlock />
             Unlock
           </button>
-          <button className="btn">Forgot Pin</button>
+          <button className="btn" onClick={() => {
+                    var element = document.getElementById("resetPinBlackBg");
+                    element.style.display = "flex";
+                    z.style.display = "none";
+                  }} >Forgot Pin</button>
         </div>
       </div>
 
