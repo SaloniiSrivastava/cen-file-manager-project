@@ -49,6 +49,10 @@ code {
     monospace;
 }
 
+hr{
+  background-color: var(--button);
+  border: 1px solid var(--button);
+}
 
 
 /* header styling */
@@ -146,8 +150,19 @@ input{
   background-color: var(--folder);
   font-weight: bold;
   margin: 5% 2%;
-  border-left: 2px #480355 ;
- 
+  border-left: 2px solid var(--folder);
+  width: 80%;
+  cursor: pointer;
+}
+
+.folder-active{
+  background-color: white;
+  font-weight: bolder;
+  margin: 5% 2%;
+  border: 2px solid var(--folder);
+  width: 80%;
+  cursor: pointer;
+  color: #480355;
 }
 
 /* homepage styling */
@@ -174,7 +189,7 @@ input{
   margin-top: 1%;
   background-color: var(--background);
 }
-.searchBox input {
+.searchBox {
   border: none;
   width: 60%;
   margin: 0%;
@@ -215,12 +230,24 @@ input{
 #searchBar {
   border: none;
   outline: none;
+ height: 10px;
+ margin-bottom: 5%;
+  
 }
 .fileLabel{
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: pointer;
+}
+
+
+.searchedItem{
+
+  background-color: var(--navbar);
+  margin-bottom: 1%;
+  color: var(--text-primary);
+  cursor:pointer;
 }
 /* navbar styling */
 
@@ -283,6 +310,7 @@ input{
   flex-direction: row;
   align-items: center;
   /* justify-content: center; */
+  
 }
 #lockBtn {
   /* width: max-content; */
@@ -326,7 +354,14 @@ input{
 }
 .activeBox, #folderBox:hover{
   background-color: #ffffff;
-  border: 2px solid  var(--button);
+  /* border: 2px solid  var(--button); */
+ cursor: pointer;
+ color:#000000;
+}
+
+.active{
+  background-color: #ffffff;
+  /* border: 2px solid  var(--button); */
  cursor: pointer;
  color:#000000;
 }
@@ -334,6 +369,7 @@ input{
 ul{
   list-style-type:none;
   /* border-left: 1px solid var(--folder); */
+  
 }
 li{
   border-left: 2px solid var(--folder);
@@ -401,7 +437,7 @@ li{
 
 /* lock screen design
  */
-.blackBg {
+.blackBg, .folder-file-modal-div {
   background-color: rgba(0, 0, 0, 0.8);
 
    height: 104vh;
@@ -435,10 +471,14 @@ li{
   transition: all 0.3s ease-in-out;
   
 }
-.act{
-  border:2px solid green;
 
+.name-input{
+  width: 80%;
 }
+
+
+
+
 .whiteBg .btn{
   width: 40%;
   margin-top: 20%;
@@ -596,20 +636,38 @@ li{
 
 
 
+.breadCrumbs{
+  position: relative;
+}
+ .treeAll{
+   display: flex;
+   flex-direction: column;
+   
+ }
+.tree{
+  display: block;
+}
 
 
 
 
 
+.files-div{
+  display: flex;
+  flex-direction: row;
+  margin: 2%;
+}
+
+.file-element-div{
+  margin: 5%;
+  padding: 2%;
+}
 
 
 
-
-
-
-
-
-
-
-
+.folder-name-div{
+  border-left:2px solid #000000;
+ 
+  
+}
 

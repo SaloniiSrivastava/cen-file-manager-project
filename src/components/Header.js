@@ -9,7 +9,9 @@ import { ReactComponent as DarkMode } from "../logo_dark.svg";
 const useHeader = () => {
   let navigate = useNavigate();
    
-   
+ 
+
+  
   
    const [pin, setPin] = useState('');
   const [pass, setPass] = useState('');
@@ -63,6 +65,7 @@ const useHeader = () => {
     localStorage.setItem("theme",'Dark');
   }
 
+  const light = currTheme === 'Light' ? true : false;
   
 
     return (   
@@ -70,8 +73,8 @@ const useHeader = () => {
         <header>
        
         <link href='https://fonts.googleapis.com/css?family=DM Sans' rel='stylesheet'/>
-        <Logo className="logo" id="lightLogo" />
-        <DarkMode id="darkLogo"/>
+       {light ? <Logo className="logo" id="lightLogo" /> :<DarkMode/> }
+        
 
        
   <div className="max">

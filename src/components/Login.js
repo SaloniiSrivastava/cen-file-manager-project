@@ -11,7 +11,7 @@ function Login () {
     navigate('/home');
     alert('Your pin is set up successfully')
   };
-       
+      
 //     state={
 //        setPin: '',
 //        rePin: '' 
