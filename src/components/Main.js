@@ -251,7 +251,7 @@ function handleShowAddFileFolder(name){
   const [isResizing, setIsResizing] = useState(false);
   const [sidebarWidth, setSidebarWidth] = useState(268);
 
-  const startResizing = React.useCallback((mouseDownEvent) => {
+  const startResizing = React.useCallback(() => {
     setIsResizing(true);
   }, []);
 
@@ -339,6 +339,7 @@ function handleShowAddFileFolder(name){
     }
   }
     
+
 
 
 
@@ -502,7 +503,7 @@ function handleShowAddFileFolder(name){
                     <AddDark />{" "}
                   </button>
                 )}
-
+                
                 {lightIcon ? (
                   <button
                     className="smallBtn"
@@ -559,19 +560,19 @@ function handleShowAddFileFolder(name){
                
               </div>
 
-              <div className="toggleFile" id="toggleFile">
+               <div className="toggleFile" id="toggleFile">
                 <p onClick={() => {
-                    var element = document.getElementById("createFolderBg");
+                    var element = document.getElementById("createFileBg");
                     element.style.display = "flex";
                     y.style.display = "none";
                   }} 
                     
                 >
                   Add File
-                </p>
+                </p> 
 
                
-                <p 
+                 <p 
                   onClick={() => {
                     var element = document.getElementById("createFolderBg");
                     element.style.display = "flex";
@@ -579,9 +580,9 @@ function handleShowAddFileFolder(name){
                   }}
                 >
                   Add Folder
-                </p>
-
-              </div>
+                </p> 
+</div>
+         
 
               <div className="togglePin" id="togglePin">
                 <p

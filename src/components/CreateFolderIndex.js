@@ -5,6 +5,7 @@ import './FolderIndex.scss';
 import { Scrollbars } from 'react-custom-scrollbars';
 
 
+
 // =========== not showing folder white when open initially in first render ==========================
 const FolderIndex = (props) => {
   
