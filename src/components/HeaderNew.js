@@ -1,9 +1,32 @@
 import React, { useState } from "react";
-
+// import DropdownMenu from './DropdownMenu';
 import SearchItems from "./Search";
 import { ReactComponent as SearchIcon } from "../search.svg";
+// import { ReactComponent as Add } from "../add.svg";
+// import { ReactComponent as AddDark } from "../AddDark.svg";
+
 
 const HeaderNew = (props) => {
+
+  // const theme = localStorage.getItem("theme");
+
+  // const lightTheme = theme === 'Light' ? true : false;
+
+  // const [dropdown , setDropdown]=useState(false);
+  // // ```````````````````handle dropdown````````````````
+  //     function showDropdown(){
+  //         setDropdown(!dropdown);
+         
+  //     }
+  
+  //     function handleElementAddedName(name){
+  //         props.showAddFileFolderModalFunc(name);
+  //         showDropdown();
+  //     }
+
+
+
+
   //``````````````````````````search````````````````````````
 
   const [searchText, setSearchText] = useState("");
@@ -113,8 +136,11 @@ const HeaderNew = (props) => {
             )}
           </form>
         </div>
-        {/* <button className='btn-icons smallBtn' onClick={showDropdown}>{lightTheme ? <Add/>: <AddDark/>}</button>     */}
-        {/* {dropdown && <DropdownMenu showAddFileFolderModalFunc={handleElementAddedName}/> }  */}
+        
+         {/* <button className='btn-icons smallBtn' onClick={showDropdown}>{lightTheme ? <Add/>: <AddDark/>}</button> 
+          <div className="toggleFile">
+         {dropdown && <DropdownMenu showAddFileFolderModalFunc={handleElementAddedName}/> }  */}
+         {/* </div> */}
       </div>
       <div className="bottom-path-div">
         {props.directory.currPath.length > 0 && pathCurrent()}

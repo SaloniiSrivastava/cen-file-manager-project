@@ -224,7 +224,11 @@ const Home = (props) => {
     body.classList.remove("dark-theme");
   }
 
- 
+  // const editFile = () => {
+  //   var element = document.getElementById("editFileBg");
+  //   element.style.display = "flex";
+  //   y.style.display = "none";
+  // };
 
   //``````````````````````````````````` navbar resize```````````````````````````````````````````````````````
   const sidebarRef = useRef(null);
@@ -260,18 +264,51 @@ const Home = (props) => {
     };
   }, [resize, stopResizing]);
 
-  //`````````````````````````navbar resize func```````````````````````````````````````
+  // createFile
+  const [name, setName] = useState("");
+  //const [fileIcon, setFileIcon] = useState(false);
+  //const [folderIcon, setFolderIcon] = useState(false);
 
-  
+  function handleChange(e) {
+    setName(e.target.value);
+  }
 
-  // function handleCancel() {
-  //   var element = document.getElementById("resetPinBlackBg");
+  const submitForm = (e) => {
+    e.preventDefault();
+    var element = document.getElementById("createFileBg");
+    //if(name){
+    element.style.display = "none";
+    localStorage.setItem("add", "add");
+    //} else{
+    //   alert('File name cannot be empty!');
+    //}
+    // setFileIcon(true);
+    localStorage.setItem("name", name);
+    localStorage.setItem("type", "file");
+  };
+  function handleCancel() {
+    var element = document.getElementById("resetPinBlackBg");
 
-  //   element.style.display = "none";
-  // }
-  
+    element.style.display = "none";
+  }
+  //  folder
+  const [foldername, setFolderName] = useState("");
 
-  
+  function handleChangeFolder(e) {
+    setFolderName(e.target.value);
+    //console.log(e.target.value);
+  }
+
+  const submitFormFolder = (e) => {
+    e.preventDefault();
+    var element = document.getElementById("createFolderBg");
+
+    element.style.display = "none";
+    localStorage.setItem("add", "add");
+    localStorage.setItem("name", foldername);
+    localStorage.setItem("type", "folder");
+    //setFolderIcon(true);
+  };
 
   const [value, setValue] = useState("");
 
@@ -405,9 +442,49 @@ const Home = (props) => {
                     {themes} Mode{" "}
                   </button>
                 )}
-                
+                {/* {lightIcon ? (
+                  <button
+                    className="smallBtn"
+                    onClick={() => {
+                      y = document.getElementById("toggleFile");
 
-                     
+                      if (
+                        y.style.display === "none" ||
+                        x.style.display !== "none" ||
+                        z.style.display !== "none"
+                      ) {
+                        y.style.display = "block";
+                        x.style.display = "none";
+                        z.style.display = "none";
+                      } else {
+                        y.style.display = "none";
+                      }
+                    }}
+                  >
+                    <Add />{" "}
+                  </button> */}
+                {/* ) : (
+                  <button
+                    className="smallBtn"
+                    onClick={() => {
+                      y = document.getElementById("toggleFile");
+
+                      if (
+                        y.style.display === "none" ||
+                        x.style.display !== "none" ||
+                        z.style.display !== "none"
+                      ) {
+                        y.style.display = "block";
+                        x.style.display = "none";
+                        z.style.display = "none";
+                      } else {
+                        y.style.display = "none";
+                      }
+                    }}
+                  >
+                    <AddDark />{" "}
+                  </button>
+                )} */}
                 <button className="btn-icons smallBtn" onClick={showDropdown}>
                   {lightTheme ? <Add /> : <AddDark />}
                 </button>
@@ -419,11 +496,11 @@ const Home = (props) => {
                       if (
                         z.style.display === "none" ||
                         x.style.display !== "none"
-                       
+                        // y.style.display !== "none"
                       ) {
                         z.style.display = "block";
                         x.style.display = "none";
-                       
+                        // y.style.display = "none";
                       } else {
                         z.style.display = "none";
                       }
@@ -438,11 +515,11 @@ const Home = (props) => {
                       if (
                         z.style.display === "none" ||
                         x.style.display !== "none"
-                        
+                        // y.style.display !== "none"
                       ) {
                         z.style.display = "block";
                         x.style.display = "none";
-                        
+                        // y.style.display = "none";
                       } else {
                         z.style.display = "none";
                       }
@@ -471,7 +548,26 @@ const Home = (props) => {
                     showAddFileFolderModalFunc={handleShowAddFileFolder}
                   />
                 )}
-               
+                {/* <p onClick={() => {
+     var element = document.getElementById("createFileBg");
+     element.style.display = "flex";
+     y.style.display = "none";
+   }} 
+     
+ >
+   Add File
+ </p> 
+
+
+  <p 
+   onClick={() => {
+     var element = document.getElementById("createFolderBg");
+     element.style.display = "flex";
+     y.style.display = "none";
+   }}
+ >
+   Add Folder
+ </p>  */}
               </div>
 
               <div className="togglePin" id="togglePin">
@@ -489,11 +585,11 @@ const Home = (props) => {
           </div>
         </div>
       </div>
-      
+
       {/* ``````````````````````````````````````````````````````header``````````````````````````````````````````````````````````````     */}
 
       {/* `````````````````````````````````````````lock screen ````````````````````````````````````````````````````````````````````````````````` */}
-      
+
       <div className="blackBg" id="blackBg">
         <div className="whiteBg">
           <h1>Enter Pin</h1>
@@ -549,8 +645,47 @@ const Home = (props) => {
       </div>
 
       {/* ````````````````````````````````````````````````lock screen```````````````````````````````````````````````````` */}
-      
-      <FileEdit />
+      <div className="blackBg" id="createFileBg">
+        <div className="whiteBg file">
+          <h3>Create File</h3>
+
+          <form action="" onSubmit={submitForm}>
+            <label>Enter File Name</label>
+            <input
+              type="text"
+              name="file"
+              id="setPin"
+              placeholder="Enter new file name"
+              onChange={handleChange}
+            />
+
+            <button className="btn">Create New</button>
+            <button className="btn" id="cancelBtn" onClick={handleCancel}>
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
+      <div className="blackBg" id="createFolderBg">
+        <div className="whiteBg file">
+          <h3>Create Folder</h3>
+          <form action="" onSubmit={submitFormFolder}>
+            <label>Enter Folder Name</label>
+            <input
+              type="text"
+              name="folder"
+              id="setPin"
+              placeholder="Enter new folder name"
+              onChange={handleChangeFolder}
+            />
+
+            <button className="btn">Create New</button>
+            <button className="btn" id="cancelBtn" onClick={handleCancel}>
+              Cancel
+            </button>
+          </form>
+        </div>
+      </div>
 
       {showAddFileFolder && (
         <AddFileFolder
@@ -559,9 +694,9 @@ const Home = (props) => {
           makeElement={makeElement}
         />
       )}
-     
+
       <ResetPin />
-     
+      <FileEdit />
     </div>
   );
 };

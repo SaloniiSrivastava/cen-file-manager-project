@@ -18,10 +18,10 @@ import ResetPin from "./ResetPin";
 // import CreateFolder from "./CreateFolder";
 // import FileIcon from "./File";
 import FileEdit from "./FileEdit";
-import Tree from "./Tree";
+//import Tree from "./Tree";
 
-import { ReactComponent as GreyFolder } from "../GreyFolder.svg";
-import { ReactComponent as GreyFile } from "../GreyFile.svg";
+//import { ReactComponent as GreyFolder } from "../GreyFolder.svg";
+//import { ReactComponent as GreyFile } from "../GreyFile.svg";
 
 import { ReactComponent as FileIcon } from "../AddFile.svg";
 import { ReactComponent as FileIconDark } from "../AddFileDark.svg";
@@ -39,13 +39,13 @@ import Child from "./child";
 
 const Home = ({ data = [] }) => {
   //let navigate = useNavigate();
-  var nodeName = localStorage.getItem("nodeName");
+ 
 
 
   var pin = localStorage.getItem("pin");
   const body = document.body;
 
-  const isLoggedin = pin ? true : false;
+  //const isLoggedin = pin ? true : false;
 
   const [one, setOne] = useState("");
   const [two, setTwo] = useState("");
@@ -260,15 +260,9 @@ const Home = ({ data = [] }) => {
     }
   }
 
-  const isMatch = name === value ? true : false;
 
-  const[file,setFile] = useState([
-    {
-      icon : <BigFile/>,
-      name : ''
-    }
 
-]);
+  
 
  
 
@@ -394,11 +388,7 @@ const Home = ({ data = [] }) => {
                 {nodeName} */}
                 
 
-                <div> {file.map((fileName,index) => 
-                      <div key={index}> 
-                        <div> {fileName.name}</div>
-                      </div>)} 
-                </div>
+                
 
                   {fileIcon ? (
                     <div onClick={editFile}>

@@ -1,11 +1,11 @@
-// import React, { useContext, useState, useEffect } from 'react'
+ //import React, { useContext, useState, useEffect } from 'react'
 // import FileElement from './fileElement';
 // import completeStructure from '../completeStr';
 // import { COMPLETE_STRUCTURE } from '../localStorageKeys';
-// import MakeFileFolder from './csConstructor';
+// import MakeFileFolder from './MakeFileFolder';
 // import { v4 as uuidv4 } from 'uuid';
 // import LeftExplorer from './LeftExplorer';
-// import AddFileFolderModal from './AddFileFolderModal';
+// import AddFileFolderModal from './AddFileFolder';
 // import { ReactComponent as Unlock } from "../UnlockFolder.svg";
 // import { ReactComponent as LockIcon } from "../LockFolder.svg";
 
@@ -85,7 +85,7 @@
 //  }
 
 
-//   function showFiles(path){
+//  function showFiles(path){
 //     let filesArr=[];
 //     if(path.length!==0){
 //      let element=directory.structure[path[0]];
@@ -95,15 +95,16 @@
 
 //      element.childNodes.forEach(item=>{
 //        if(!item.isFolder){
-//          filesArr.push(<FileElement path={item.path} name={item.name} key={item.id} content={item.content} />)
+//          filesArr.push(<FileElement path={item.path} name={item.name} key={item.id} content={item.content} editFile={editFile}/>)
 //        }
 //      })
 
 //      return filesArr;
-
-     
 //     }
 //   }
+
+     
+    
 
 //   // ========================ADDING FILES FOLDERS=====================================
 
@@ -230,3 +231,10 @@
 // }
 
 // export default Child
+
+
+
+
+
+
+ 
