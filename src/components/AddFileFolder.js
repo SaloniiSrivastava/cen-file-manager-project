@@ -33,7 +33,7 @@ const AddFileFolder = (props) => {
     <h3>Create {props.element}</h3>
       <form>
       <label>Enter {props.element} name: </label>
-      <input className='name-input' type='text' onChange={handleChange} value={elementName} autoFocus />
+      <input className='name-input' type='text' onChange={handleChange} value={elementName} autoFocus autoComplete='off' />
       <div>
         <button className='modal-submit-btn btn' onClick={makeElement}>Create New</button>
          <button className="btn" id="cancelBtn" onClick={handleCancel}> Cancel</button> 
