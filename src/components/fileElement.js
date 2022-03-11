@@ -19,12 +19,15 @@ const FileElement = (props) => {
  
  
   return (
-    <div>
+    <div className='page'>
+       
     <div className='file-element-div' onClick={editFile}>
         {lightTheme ? <img src={FileIcon} alt="file"/> : <img src={FileIconDark} alt="file"/>}
         <p>{props.name}</p>
     </div>
-    <FileEdit />
+    <div>
+    <FileEdit /> 
+    </div>
     </div>
   )
 }

@@ -66,6 +66,6 @@ function ResetPin() {
 
 
         );
-    };
+    }
 
     export default ResetPin

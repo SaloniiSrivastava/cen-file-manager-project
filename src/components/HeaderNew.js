@@ -69,7 +69,7 @@ const HeaderNew = (props) => {
   function handleChange(event) {
     const t = event.target.value;
 
-    setSearchText((prev) => {
+    setSearchText(() => {
       func(t);
       return t;
     });

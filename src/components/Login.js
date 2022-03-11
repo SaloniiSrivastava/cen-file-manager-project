@@ -10,7 +10,7 @@ function Login () {
   function handleClick() {
     navigate('/home');
     alert('Your pin is set up successfully')
-  };
+  }
       
 //     state={
 //        setPin: '',

@@ -8,7 +8,7 @@ import { ReactComponent as Setting } from "../Settings.svg";
 import { ReactComponent as SettingDark } from "../SettingDark.svg";
 import { ReactComponent as Unlock } from "../UnlockFolder.svg";
 import ResetPin from "./ResetPin";
-import FileEdit from "./FileEdit";
+// import FileEdit from "./FileEdit";
 import { ReactComponent as LockIcon } from "../LockFolder.svg";
 import { ReactComponent as Logo } from "../logo1.svg";
 import { ReactComponent as LogoDark } from "../logo_dark.svg";
@@ -170,7 +170,7 @@ const Home = (props) => {
   }
 
   //```````````````````````````````````on submit unlock function```````````````````````````````````````
-  function handleClick(e) {
+  function handleClick() {
     if (
       one === pin[0] &&
       two === pin[1] &&
@@ -550,7 +550,7 @@ const Home = (props) => {
 
       {/* ````````````````````````````````````````````````lock screen```````````````````````````````````````````````````` */}
       
-      <FileEdit />
+      {/* <FileEdit /> */}
 
       {showAddFileFolder && (
         <AddFileFolder

@@ -6,7 +6,7 @@ function MakeFileFolder(id,name,path,isFolder){
     this.isActive=false
     //this.content=content
     this.childNodes=[]
-}; 
+}
 
 
 
