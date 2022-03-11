@@ -390,7 +390,7 @@ li{
   height: max-content;
   padding-left: 3%;
   padding-right: 1%;
- width:10%;
+ width:100%;
   cursor: pointer;
   white-space: nowrap;
 }
