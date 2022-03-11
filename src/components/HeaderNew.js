@@ -8,22 +8,7 @@ import { ReactComponent as SearchIcon } from "../search.svg";
 
 const HeaderNew = (props) => {
 
-  // const theme = localStorage.getItem("theme");
-
-  // const lightTheme = theme === 'Light' ? true : false;
-
-  // const [dropdown , setDropdown]=useState(false);
-  // // ```````````````````handle dropdown````````````````
-  //     function showDropdown(){
-  //         setDropdown(!dropdown);
-         
-  //     }
   
-  //     function handleElementAddedName(name){
-  //         props.showAddFileFolderModalFunc(name);
-  //         showDropdown();
-  //     }
-
 
 
 
@@ -126,7 +111,7 @@ const HeaderNew = (props) => {
               id="searchBar"
               className="searchBox"
               onChange={handleChange}
-              value={searchText}
+              value={searchText} autocomplete="off"
             />{" "}
             <button type="submit" hidden></button>
             {searchText.length > 0 && (
@@ -137,10 +122,6 @@ const HeaderNew = (props) => {
           </form>
         </div>
         
-         {/* <button className='btn-icons smallBtn' onClick={showDropdown}>{lightTheme ? <Add/>: <AddDark/>}</button> 
-          <div className="toggleFile">
-         {dropdown && <DropdownMenu showAddFileFolderModalFunc={handleElementAddedName}/> }  */}
-         {/* </div> */}
       </div>
       <div className="bottom-path-div">
         {props.directory.currPath.length > 0 && pathCurrent()}
