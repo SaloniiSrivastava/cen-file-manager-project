@@ -111,7 +111,7 @@ const HeaderNew = (props) => {
               id="searchBar"
               className="searchBox"
               onChange={handleChange}
-              value={searchText} autocomplete="off"
+              value={searchText} 
             />{" "}
             <button type="submit" hidden></button>
             {searchText.length > 0 && (
