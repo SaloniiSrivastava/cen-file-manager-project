@@ -389,9 +389,10 @@ li{
   margin: 1% 1% 0 75%; 
   height: max-content;
   padding-left: 3%;
-  padding-right: 2%;
+  padding-right: 1%;
  width:10%;
   cursor: pointer;
+  white-space: nowrap;
 }
 .toggleMode p:hover,.togglePin p:hover,.toggleFile p:hover{
   color: #c58292;
