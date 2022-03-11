@@ -295,13 +295,19 @@ const Home = (props) => {
   return (
     //``````````````````````````````````````````````resizable nav```````````````````````````````````
     <div className="app-container">
+
+
+     
       <div
         ref={sidebarRef}
         className="app-sidebar"
         style={{ width: sidebarWidth }}
         onMouseDown={(e) => e.preventDefault()}
       >
+        
         <div className="app-sidebar-content">
+
+       
           {lightIcon ? (
             <Logo className="logo" />
           ) : (
@@ -315,6 +321,7 @@ const Home = (props) => {
                   directory={directory}
                   changeState={changeState}
                 />
+              
 
                 <button
                   className="btn"
@@ -328,15 +335,28 @@ const Home = (props) => {
                 </button>
               </>
             </div>
+          
           </div>
         </div>
         <div className="app-sidebar-resizer" onMouseDown={startResizing} />
+       
       </div>
       <div className="app-frame">
+
+     
         {/* ````````````````````````````````resizable nav ``````````````````````````````````````````````````````````````````        */}
 
         {/* ``````````````````````````````````````````header```````````````````````````````````````````````````````````````````````` */}
+        
+        {showAddFileFolder && (
+        <AddFileFolder
+          showAddFileFolderModalFunc={handleShowAddFileFolder}
+          element={element}
+          makeElement={makeElement}
+        />
+      )}
         <div className="homePage" id="homePage">
+       
           <div className="layout">
             <div className="search">
               <div
@@ -351,12 +371,16 @@ const Home = (props) => {
                   changeState={changeState}
                   makeActive={makeActive}
                 />
+               
                 <div></div>
 
+               
+
                 <div className="fileLayout" id="fileLayout">
-                  <div className="files-div">
+                <div className="files-div">
                     {showFiles(directory.currPath)}
                   </div>
+                 
                   {/* {showAddFileFolderModal&&<AddFileFolder showAddFileFolderModalFunc={handleShowAddFileFolder} element={element} createElement={makeElement} />}  */}
                 </div>
               </div>
@@ -437,15 +461,18 @@ const Home = (props) => {
                     onClick={() => {
                       if (
                         z.style.display === "none" ||
-                        x.style.display !== "none"
+                        x.style.display !== "none" 
+                        
                         
                       ) {
                         z.style.display = "block";
                         x.style.display = "none";
                         
+                        
                       } else {
                         z.style.display = "none";
                       }
+                      
                     }}
                   >
                     <SettingDark />
@@ -480,6 +507,7 @@ const Home = (props) => {
                     var element = document.getElementById("resetPinBlackBg");
                     element.style.display = "flex";
                     z.style.display = "none";
+                    
                   }}
                 >
                   Reset Pin
@@ -552,13 +580,7 @@ const Home = (props) => {
       
       {/* <FileEdit /> */}
 
-      {showAddFileFolder && (
-        <AddFileFolder
-          showAddFileFolderModalFunc={handleShowAddFileFolder}
-          element={element}
-          makeElement={makeElement}
-        />
-      )}
+      
      
       <ResetPin />
      

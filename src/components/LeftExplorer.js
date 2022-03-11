@@ -28,7 +28,7 @@ const LeftExplorer = (props) => {
   return (
     <div >
       <div className='upper-part'>
-        
+      
         <div className='add-file-folder-buttons '>
         <div className="side addBtn">
           <button className='btn-add addFile' onClick={handleElementAddedName} name="File"> {light ? <FileIcon /> : <FileIconDark />} Add File</button>

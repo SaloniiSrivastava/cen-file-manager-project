@@ -23,10 +23,7 @@ const AddFileFolder = (props) => {
 
 //```````````````````````handle cancel```````````````````````````````
   function handleCancel() {
-     
-    var element = document.getElementById("resetPinBlackBg");
-    
-         element.style.display = "none";
+    props.showAddFileFolderModalFunc();
       }
 
   return (
@@ -39,7 +36,7 @@ const AddFileFolder = (props) => {
       <input className='name-input' type='text' onChange={handleChange} value={elementName} autoFocus/>
       <div>
         <button className='modal-submit-btn btn' onClick={makeElement}>Create New</button>
-        <button className="btn" id="cancelBtn" onClick={handleCancel}> Cancel</button>
+         <button className="btn" id="cancelBtn" onClick={handleCancel}> Cancel</button> 
       </div>
     </form>
     </div>
