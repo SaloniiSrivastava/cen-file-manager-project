@@ -200,8 +200,9 @@ input{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-   /* position: relative;  */
+    /* position: relative;   */
   height: 730px;
+  /* margin-left: 3%; */
   
 }
 
@@ -351,6 +352,10 @@ input{
   display: flex;
   flex-direction: column;
   width: 100%;
+  
+}
+.layout .search{
+  margin-left:3%;
 }
 .activeBox, #folderBox:hover{
   background-color: #ffffff;
@@ -378,13 +383,14 @@ li{
   display: none;  
   border:1px solid #dfe0e0 ;
   border-radius: 5px ;
- text-align: right;
-  font-size:medium;
+  text-align: right;
+   font-size:medium; 
   color:  var(--label);  
-  margin: 1% 1% 0 71%; 
+  margin: 1% 1% 0 75%; 
   height: max-content;
-  padding: 1%;
-  width: max-content;
+  padding-left: 3%;
+  padding-right: 2%;
+ width:10%;
   cursor: pointer;
 }
 .toggleMode p:hover,.togglePin p:hover,.toggleFile p:hover{
@@ -392,18 +398,18 @@ li{
     
 }
 .toggleFile{
-  display: none; 
-  border:1px solid #dfe0e0 ;
+   /* display: none;   */
+  /* border:1px solid #dfe0e0 ;   */
   border-radius: 5px ;
  text-align: right;
   font-size:medium;
   color:  var(--label);  
   height: max-content;
-  padding: 1%;
-  width: max-content;
+  /* padding: 1%; */
+  width:10%;
   cursor: pointer;
   margin-top: 1%; 
-  margin-left: 76%;
+  margin-left: 78%;
 }
 .togglePin{
   display: none; 
@@ -417,21 +423,21 @@ li{
   width: max-content;
   cursor: pointer;
   margin-top: 1%; 
-  margin-left: 82%;
+  margin-left:-3.2%;
   float: right;
 }
 
 .optionLayout{
   display: flex;
   flex-direction: row;
-  
+  width: 100%;
 }
 
 .fileLayout{
   display: flex;
   flex-direction: row;
   margin-top: 10%;
-  margin-left:10%;
+  /* margin-left:10%; */
   justify-content: space-between;
 }
 
@@ -439,16 +445,17 @@ li{
  */
 .blackBg, .folder-file-modal-div {
   background-color: rgba(0, 0, 0, 0.8);
-
    height: 104vh;
   display: flex;
   align-items: center;
   justify-content: center;
    position: absolute; 
-  top:0;
- 
+  top:0; 
   width: 100%;
- 
+
+}
+.blackBg{
+  display:none;
 }
 .inline{
   display: flex;
@@ -567,7 +574,7 @@ li{
   /* box-shadow: 8px 2px 32px -2px rgba(0, 0, 0, 0.25); */
   border-radius: 0px 10px 10px 0px;
   /* z-index: 1; */
-  margin-left: 3%;
+  /* margin-left: 3%; */
   
 }
 
@@ -655,13 +662,18 @@ li{
 .files-div{
   display: flex;
   flex-direction: row;
-  margin: 2%;
+ 
+ 
 }
 
 .file-element-div{
   margin: 5%;
   padding: 2%;
+  
 }
+
+
+
 
 
 
@@ -670,4 +682,19 @@ li{
  
   
 }
+
+.create{
+  position: relative;
+  top:0;
+}
+
+.dropdown-btns{
+  cursor: pointer;
+}
+.dropdown{
+  border:1px solid #dfe0e0 ;
+  border-radius: 5px ;
+  padding: 3%;
+}
+
 
