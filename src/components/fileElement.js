@@ -21,7 +21,7 @@ const FileElement = (props) => {
   return (
 <>
     <FileEdit /> 
-    <div >
+    <div className ="file-element" >
        
     <div className='file-element-div' onClick={editFile}>
         {lightTheme ? <img src={FileIcon} alt="file"/> : <img src={FileIconDark} alt="file"/>}
